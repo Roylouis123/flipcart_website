@@ -1,11 +1,17 @@
 import { Box, Button, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LoginDialogue from '../login/loginDialogue';
 
 const CustomButtons = () => {
+
+
+  const [open,setopen]=useState(false);
+
+  
   return (
     <Box display="flex" justifyContent="space-between" gap={10} marginLeft={3} alignItems="center">
-        <Button variant='contained' 
+        <Button variant='contained' onClick={()=>{setopen(true);}}
         style={{
             background:"#fff", 
             color:"blue", 
@@ -20,7 +26,8 @@ const CustomButtons = () => {
         <Typography>More</Typography>
 
         <Typography><ShoppingCartIcon/></Typography>
-    </Box>
+        <LoginDialogue open={open} setopen={setopen}/>
+            </Box>
   )
 }
 
